@@ -2,7 +2,13 @@
 
 namespace classes\funcionarios;
 
-class Designer{
+use classes\abstratas\Funcionario; 
 
+class Designer extends Funcionario{
+
+
+	
+
+	
 }
 ?>
