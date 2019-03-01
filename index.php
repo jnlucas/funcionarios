@@ -9,20 +9,18 @@ use classes\abstratas\Funcionario;
 
 use classes\sistemaInterno\GerenciadorBonificacao;
 
+Funcionario::setPiso(4569.00);
 
-
-$diretor = new Diretor("233.333.332.33",1000.00);
+$diretor = new Diretor("233.333.332.33",34343);
 $diretor->senha = "123456";
 
-$designer = new Designer("233.333.444.33",1000.00);
 
 
+$designer = new Designer("233.333.444.33",11111);
 
 $gerenciador = new GerenciadorBonificacao();
 
-
 $gerenciador->AutentiqueAqui($diretor ,"123456");
-
 
 
 $gerenciador->registrar($diretor);
@@ -38,6 +36,19 @@ var_dump($gerenciador->getTotalBonificacoes());
 
 
 
+var_dump($diretor);
+var_dump($designer);
+
+
+$designer->aumentarSalario();
+$diretor->aumentarSalario();
+
+
+
+var_dump($diretor);
+var_dump($designer);
+
+
 // echo $designer->getBonificacao(); echo "<br>";
 
 // echo $diretor->getBonificacao();
@@ -49,8 +60,6 @@ var_dump($gerenciador->getTotalBonificacoes());
 //  var_dump($diretor);
 //  var_dump($designer);
 
-// $designer->aumentarSalario();
-// $diretor->aumentarSalario();
 
 //  var_dump($diretor);
 //  var_dump($designer);
