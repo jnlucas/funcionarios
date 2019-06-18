@@ -11,12 +11,19 @@ use classes\sistemaInterno\GerenciadorBonificacao;
 
 Funcionario::setPiso(4569.00);
 
-$diretor = new Diretor("233.333.332.33",34343);
+
+
+#UTILIZANDO FACTORY
+$diretor =  Funcionario::create('classes\funcionarios\Diretor',"233.333.332.33",null); 
 $diretor->senha = "123456";
 
 
+$designer = Funcionario::create('classes\funcionarios\Designer',"233.333.444.33",11111);
 
-$designer = new Designer("233.333.444.33",11111);
+
+
+
+
 
 $gerenciador = new GerenciadorBonificacao();
 
@@ -49,19 +56,19 @@ var_dump($diretor);
 var_dump($designer);
 
 
-// echo $designer->getBonificacao(); echo "<br>";
+echo $designer->getBonificacao(); echo "<br>";
 
-// echo $diretor->getBonificacao();
-
-
-
-//  var_dump($diretor->autenticar("123456"));
-
-//  var_dump($diretor);
-//  var_dump($designer);
+echo $diretor->getBonificacao();
 
 
-//  var_dump($diretor);
-//  var_dump($designer);
+
+ var_dump($diretor->autenticar("123456"));
+
+ var_dump($diretor);
+ var_dump($designer);
+
+
+ var_dump($diretor);
+ var_dump($designer);
 
 ?>

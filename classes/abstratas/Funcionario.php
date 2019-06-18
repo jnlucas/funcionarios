@@ -2,7 +2,9 @@
 
 
 namespace classes\abstratas;
-abstract class Funcionario{
+use classes\abstratas\FuncionarioFactory; 
+
+abstract class Funcionario implements FuncionarioFactory{
 
 	public $nome;
 
@@ -32,26 +34,32 @@ abstract class Funcionario{
 
 
 
-	public function __construct($cpf,$salario){
+	/**
+	* utilizando DesignPatterns PHP factory
+	* Criado método statico para criacao dos objetos funcionarios
+	*
+	*/
+	public static function create($cargo,$cpf,$salario){
 
-		if(func_num_args() == 2){
-			$this->cpf = $cpf;
-			$this->salario = $salario;
-		}else{
-			$this->construtor2($cpf);
+		if(!$salario){
+			$salario = self::$piso;
 		}
+
+		return new $cargo($cpf,$salario);
+	}
+
+	/**
+	* Construtor definido como privado, pois a unica forma de instanciar um profissional é pelo factory
+	*/
+	private function __construct($cpf,$salario){
 		
+		$this->cpf = $cpf;
+		$this->salario = $salario;
 
 
 	}
 
-	public function construtor2($cpf){
-
-		 $this->cpf = $cpf;
-		$this->salario = self::$piso;
-
-
-	}
+	
 
 
 }
